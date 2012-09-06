@@ -9,8 +9,11 @@ development:
   database: parlis
   user: root
 
-test:
+test: &test
   adapter: mysql2
   host: 127.0.0.1
   database: parlis_test
   user: root
+
+cucumber:
+  <<: *test
