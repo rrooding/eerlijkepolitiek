@@ -16,6 +16,7 @@ end
 
 gem 'jquery-rails'
 gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test do
   gem 'database_cleaner'
@@ -23,5 +24,5 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
 end

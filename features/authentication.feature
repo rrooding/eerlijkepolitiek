@@ -5,7 +5,7 @@ Feature:
 
   @wip
   Scenario: Create an account
-    Given I have a twitter account
+    Given I have a facebook account
     When I choose my social network as login
     Then I get to see my name
     And I am authenticated

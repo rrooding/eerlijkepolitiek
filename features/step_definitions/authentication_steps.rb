@@ -1,11 +1,11 @@
 
-Given /^I have a (twitter) account$/ do |social_network|
+Given /^I have a (facebook) account$/ do |social_network|
   @provider = social_network
 end
 
 When /^I choose my social network as login$/ do
   visit '/login'
-  first('.twitter').click
+  first(".#@provider").click
 end
 
 Then /^I get to see my name$/ do
