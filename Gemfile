@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 
 gem 'mysql2'
+gem 'haml-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -14,6 +15,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'omniauth'
 
 group :test do
   gem 'database_cleaner'
