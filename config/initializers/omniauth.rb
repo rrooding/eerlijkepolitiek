@@ -11,7 +11,11 @@ if Rails.env.test?
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
     :provider => 'facebook',
     :uid => '123545',
-    :name => 'Ralph'
+    :extra => {
+      :raw_info => {
+        :first_name => 'Ralph'
+      }
+    }
     # etc.
   )
 end
