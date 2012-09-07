@@ -14,9 +14,13 @@ Feature:
       | facebook |
       | twitter  |
 
-  @wip
-  Scenario: Log in and log out
-    Given I have a social media account
+  Scenario Outline: Log in and log out
+    Given I have a <provider> account
     And I am authenticated with that account
     When I click logout
     Then I am no longer authenticated
+
+    Examples:
+      | provider |
+      | facebook |
+      | twitter  |

@@ -2,3 +2,4 @@
   .authenticated
     Name:
     = current_user.first_name
+    = link_to logout_path, 'logout', class: 'logout', method: :delete
