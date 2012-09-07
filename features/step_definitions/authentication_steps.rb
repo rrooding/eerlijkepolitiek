@@ -9,7 +9,7 @@ When /^I choose my social network as login$/ do
 end
 
 Then /^I get to see my name$/ do
-  pending
+  page.should have_content('Ralph')
 end
 
 Then /^I am authenticated$/ do
