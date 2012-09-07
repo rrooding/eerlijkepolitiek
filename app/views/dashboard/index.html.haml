@@ -1,2 +1,3 @@
-Name:
-= current_user.name
+- if user_authenticated?
+  Name:
+  = current_user.first_name
