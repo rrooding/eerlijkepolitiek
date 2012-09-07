@@ -23,3 +23,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
 end
+
+group :production do
+  gem 'thin'
+end
