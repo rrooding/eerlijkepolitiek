@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.8'
 
 gem 'mysql2'
@@ -22,6 +24,10 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
+end
+
+group :development do
+  gem 'heroku'
 end
 
 group :production do
