@@ -1,4 +1,3 @@
-@wip
 Feature:
   As a user
   I want to authenticate using a social network
@@ -15,8 +14,9 @@ Feature:
       | facebook |
       | twitter  |
 
-  #Scenario: Log in and log out
-    #Given I have a social media account
-    #And I am authenticated with that account
-    #When I click logout
-    #Then I am no longer authenticated
+  @wip
+  Scenario: Log in and log out
+    Given I have a social media account
+    And I am authenticated with that account
+    When I click logout
+    Then I am no longer authenticated
