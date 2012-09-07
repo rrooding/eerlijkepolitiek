@@ -1,5 +1,4 @@
-
-Given /^I have a (facebook) account$/ do |social_network|
+Given /^I have a (twitter|facebook) account$/ do |social_network|
   @provider = social_network
 end
 
@@ -13,6 +12,6 @@ Then /^I get to see my name$/ do
 end
 
 Then /^I am authenticated$/ do
-  pending
+  page.should have_selector('.authenticated')
 end
 

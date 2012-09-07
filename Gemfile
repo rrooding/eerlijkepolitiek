@@ -17,6 +17,7 @@ end
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :test do
   gem 'database_cleaner'
