@@ -24,9 +24,11 @@ gem 'omniauth-twitter'
 
 group :test do
   gem 'database_cleaner'
+  gem "shoulda-matchers"
 end
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
 end
