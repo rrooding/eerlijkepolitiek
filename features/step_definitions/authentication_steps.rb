@@ -3,24 +3,27 @@ Given /^I have a (twitter|facebook) account$/ do |social_network|
 end
 
 When /^I choose my social network as login$/ do
-  visit '/login'
-  first(".#@provider").click
+  authenticate_network @provider
 end
 
 Then /^I get to see my name$/ do
-  page.should have_content('Ralph')
+  within '.user-name' do
+    should have_content('Ralph')
+  end
 end
 
 Then /^I am authenticated$/ do
-  page.should have_selector('.authenticated')
+  visit '/'
+  should have_selector('.authenticated')
 end
 
 Then /^I am no longer authenticated$/ do
-  page.should_not have_selector('.authenticated')
+  visit '/'
+  should_not have_selector('.authenticated')
 end
 
 Given /^I am authenticated with that account$/ do
-  step %Q{I choose my social network as login}
+  authenticate_network @provider
 end
 
 When /^I click logout$/ do

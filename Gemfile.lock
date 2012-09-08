@@ -193,6 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bundler (= 1.2)
   coffee-rails (~> 3.2.1)
   compass
   cucumber-rails

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'bundler', '1.2'
 
 gem 'mysql2'
 gem 'haml-rails'
