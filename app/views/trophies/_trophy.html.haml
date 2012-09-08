@@ -1,7 +1,8 @@
 %li.trophy.well
   .trophy-data
-    %i.img-polaroid.icon-trophy
-    %h4= trophy.title
+    = link_to trophy_path(trophy.key) do
+      %i.img-polaroid.icon-trophy
+    %h4= link_to trophy.title, trophy_path(trophy.key)
     = trophy.description
   %ul.winners
     - trophy.winners[0..25].each do |winner|
