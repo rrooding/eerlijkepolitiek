@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :political_party do
     name "MyString"
+    sequence(:parlis_id) { |i| i }
   end
 end
