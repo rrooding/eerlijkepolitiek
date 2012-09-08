@@ -19,9 +19,8 @@ Feature:
       | voted more than 60 times |
       | accepted more than 40 times |
       | declined more than 40 times |
-      | has been in more than 1 parties |
+      | have been in more than 1 parties |
 
-  @wip
   Scenario Outline: List of trophies for parties
     Given a party that <achievement>
     When I visit the trophies page
@@ -31,5 +30,6 @@ Feature:
     Examples:
       | achievement |
       | voted more than 160 times |
-      #| Accepted more than 140 times |
-      #| Declined more than 140 times |
+      | accepted more than 140 times |
+      | declined more than 140 times |
+

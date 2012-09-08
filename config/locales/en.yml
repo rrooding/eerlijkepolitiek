@@ -13,4 +13,12 @@ en:
     description: 'declined more than %{amount} times'
   game_changer: 
     title: 'Game Changer'
-    description: 'has been in more than %{amount} parties'
+    description: 'have been in more than %{amount} parties'
+
+  person:
+    one: 'person'
+    other: 'people'
+
+  party:
+    one: 'party'
+    other: 'parties'
