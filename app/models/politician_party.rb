@@ -1,4 +1,4 @@
 class PoliticianParty < ActiveRecord::Base
   belongs_to :politician
-  # attr_accessible :title, :body
+  belongs_to :party, class_name: 'PoliticalParty'
 end

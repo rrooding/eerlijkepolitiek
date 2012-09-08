@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908093111) do
+ActiveRecord::Schema.define(:version => 20120908100603) do
 
   create_table "Activiteiten", :id => false, :force => true do |t|
     t.string   "id",                :limit => 64,   :null => false
@@ -113,6 +113,24 @@ ActiveRecord::Schema.define(:version => 20120908093111) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "parlis_id",  :null => false
+  end
+
+  create_table "politician_parties", :force => true do |t|
+    t.integer  "politician_id"
+    t.integer  "party_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "politician_parties", ["party_id"], :name => "index_politician_parties_on_party_id"
+  add_index "politician_parties", ["politician_id"], :name => "index_politician_parties_on_politician_id"
+
+  create_table "politicians", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "parlis_id",  :null => false
   end
 
   create_table "users", :force => true do |t|

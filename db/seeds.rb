@@ -22,15 +22,29 @@ end
 # Extract people and parties from votes
 
 class StemmingenParser < ActiveRecord::Base
-  table_name 'Stemmingen'
+  set_table_name 'Stemmingen'
 
   def self.convert_actors
     self.all.each do |row|
-      party = PoliticalParties.find_or_create_by_name row.ActorPartij
-      if row.ActorName != row.ActorPartij
-        actor = Politicians.find_or_create_by_name row.ActorName
+      party = PoliticalParty.find_or_create_by_parlis_id row.SID_ActorFractie
+      unless party.name?
+        party.name = row.ActorPartij
+        party.save!
+      end
+      if row.ActorNaam != row.ActorPartij
+        actor = Politician.find_or_create_by_parlis_id row.SID_ActorLid
+        unless actor.name?
+          actor.name = row.ActorNaam
+          actor.save!
+        end
+        unless actor.parties.include? party
+          actor.parties << party
+        end
       end
     end
   end
 end
+
+puts '* Extracting political parties and politicians'
+StemmingenParser.convert_actors
 
