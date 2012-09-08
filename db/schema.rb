@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908100603) do
+ActiveRecord::Schema.define(:version => 20120908122428) do
 
   create_table "Activiteiten", :id => false, :force => true do |t|
     t.string   "id",                :limit => 64,   :null => false
@@ -60,21 +60,6 @@ ActiveRecord::Schema.define(:version => 20120908100603) do
     t.datetime "GewijzigdOp"
     t.string   "Opmerking",      :limit => 4000
     t.string   "Status",         :limit => 4000
-  end
-
-  create_table "Stemmingen", :id => false, :force => true do |t|
-    t.string   "id",               :limit => 64,   :null => false
-    t.string   "Soort",            :limit => 4000, :null => false
-    t.integer  "FractieGrootte"
-    t.integer  "FractieStemmen"
-    t.string   "ActorNaam",        :limit => 200,  :null => false
-    t.string   "ActorPartij",      :limit => 200,  :null => false
-    t.boolean  "Vergissing"
-    t.datetime "AangemaaktOp"
-    t.datetime "GewijzigdOp"
-    t.string   "SID_ActorLid",     :limit => 200,  :null => false
-    t.string   "SID_ActorFractie", :limit => 200,  :null => false
-    t.string   "SID_Besluit",      :limit => 64,   :null => false
   end
 
   create_table "Zaken", :id => false, :force => true do |t|
@@ -132,6 +117,25 @@ ActiveRecord::Schema.define(:version => 20120908100603) do
     t.datetime "updated_at", :null => false
     t.string   "parlis_id",  :null => false
   end
+
+  create_table "stemmingen", :id => false, :force => true do |t|
+    t.string   "id",               :limit => 64,   :null => false
+    t.string   "Soort",            :limit => 4000, :null => false
+    t.integer  "FractieGrootte"
+    t.integer  "FractieStemmen"
+    t.string   "ActorNaam",        :limit => 200,  :null => false
+    t.string   "ActorPartij",      :limit => 200,  :null => false
+    t.boolean  "Vergissing"
+    t.datetime "AangemaaktOp"
+    t.datetime "GewijzigdOp"
+    t.string   "SID_ActorLid",     :limit => 200,  :null => false
+    t.string   "SID_ActorFractie", :limit => 200,  :null => false
+    t.string   "SID_Besluit",      :limit => 64,   :null => false
+  end
+
+  add_index "stemmingen", ["SID_ActorFractie"], :name => "index_Stemmingen_on_SID_ActorFractie"
+  add_index "stemmingen", ["SID_ActorLid"], :name => "index_Stemmingen_on_SID_ActorLid"
+  add_index "stemmingen", ["Soort"], :name => "index_Stemmingen_on_Soort", :length => {"Soort"=>255}
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
