@@ -13,25 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120906201045) do
 
-  create_table "authorizations", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "gender"
-    t.string   "link"
-    t.string   "username"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "Activiteiten", :id => false, :force => true do |t|
     t.string   "id",                :limit => 64,   :null => false
     t.string   "Nummer",            :limit => 50,   :null => false
@@ -118,6 +99,25 @@ ActiveRecord::Schema.define(:version => 20120906201045) do
     t.datetime "AangemaaktOp"
     t.datetime "GewijzigdOp"
     t.string   "SID_Activiteit",        :limit => 64,   :null => false
+  end
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "gender"
+    t.string   "link"
+    t.string   "username"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
