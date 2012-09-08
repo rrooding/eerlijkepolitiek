@@ -1,8 +1,8 @@
 %li.trophy.well
   .trophy-data
     %i.img-polaroid.icon-trophy
-    %h4= trophy.name
-    description
+    %h4= trophy.title
+    trophy.description
   %ul.winners
     - trophy.winners[0..25].each do |winner|
       %li.winner

@@ -1,12 +1,15 @@
 class Trophy
   TROPHIES = {
-    voted_gold: 'Voted more than 60 times'
+    voted_gold: I18n.t(:description, scope: 'voted_gold', amount: Politician::VOTED_GOLD),
+    voted_positive_gold: I18n.t(:description, scope: 'voted_positive_gold', amount: Politician::VOTED_POSITIVE_GOLD),
+    voted_negative_gold: I18n.t(:description, scope: 'voted_negative_gold', amount: Politician::VOTED_NEGATIVE_GOLD)
   }
-  attr_accessor :key, :name
+  attr_accessor :key, :description, :title
 
   def initialize key
     self.key = key
-    self.name = TROPHIES[key]
+    self.description = TROPHIES[key]
+    self.title = I18n.t :title, scope: key
   end
 
   def self.all
@@ -20,6 +23,6 @@ class Trophy
   end
 
   def winners
-    Politician.voted_gold
+    Politician.send self.key
   end
 end

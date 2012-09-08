@@ -17,7 +17,7 @@ Feature:
 
     Examples:
       | achievement |
-      | Voted more than 60 times |
-      #| Positive! Accepted more than 80 times |
-      #| Negative! Declined more than 80 times |
+      | Democrat Voted more than 60 times |
+      | Positive Accepted more than 30 times |
+      | Negative Declined more than 30 times |
       #| Game Changer has been in more than 1 party |
