@@ -61,5 +61,13 @@ module Eerlijkepolitiek
 
     # Heroku requires this
     config.assets.initialize_on_precompile = false
+
+    # Dont generate crap
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+    config.generators.helpers = false
+    config.generators do |g|
+      g.test_framework :rspec, view_specs: false
+    end
   end
 end
