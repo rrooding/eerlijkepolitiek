@@ -1,2 +1,2 @@
-
-# hello world
+#= require jquery
+#= require jquery_ujs

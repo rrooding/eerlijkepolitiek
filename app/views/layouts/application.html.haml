@@ -1,8 +1,30 @@
 !!!
-%html
+%html(lang='nl')
   %head
-    %title Eerlijkepolitiek
-    = stylesheet_link_tag    "application", :media => "all"
+    %meta(charset='utf-8')
+    %title Eerlijke Politiek
+    = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body= yield
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          = link_to 'Eerlijke Politiek', root_path, class: 'brand'
+          .nav-collapse.collapse
+            - if user_authenticated?
+              %ul.nav.pull-right
+                %li.navbar-text.authenticated
+                  Ingelogged als
+                  .user-name= current_user
+                %li= link_to 'Uitloggen', logout_path, class: 'logout', method: :delete
+            - else
+              %ul.nav.pull-right
+                %li= link_to 'Inloggen', login_path, class: 'js-login'\
+            %ul.nav
+              %li= link_to 'Dashboard', root_path
+
+    .container-fluid
+      .row-fluid
+        .span12
+          .well= yield
