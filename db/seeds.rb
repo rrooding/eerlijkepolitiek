@@ -18,3 +18,19 @@ Dir.glob(File.join(Rails.root, 'db', 'seeds', '*.tsv')).each do |file|
     BY '\\n' STARTING BY '' IGNORE 1 LINES;
   SQL
 end
+
+# Extract people and parties from votes
+
+class StemmingenParser < ActiveRecord::Base
+  table_name 'Stemmingen'
+
+  def self.convert_actors
+    self.all.each do |row|
+      party = PoliticalParties.find_or_create_by_name row.ActorPartij
+      if row.ActorName != row.ActorPartij
+        actor = Politicians.find_or_create_by_name row.ActorName
+      end
+    end
+  end
+end
+
