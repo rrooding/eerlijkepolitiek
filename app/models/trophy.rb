@@ -15,6 +15,10 @@ class Trophy
     end
   end
 
+  def partial_path obj
+    'trophy'
+  end
+
   def winners
     Politician.voted_gold
   end

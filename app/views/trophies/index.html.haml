@@ -1,7 +1,2 @@
 %ul.trophies
-  - Trophy.all.each do |trophy|
-    %li.trophy
-      %h4= trophy.name
-      .winners
-        - trophy.winners.each do |winner|
-          = winner.name
+  = render partial: 'trophy', collection: Trophy.all
