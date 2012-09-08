@@ -20,31 +20,38 @@ body {
     .icon-trophy {
       float: left;
       margin-right: 25px;
-      line-height: 140px;
-      font-size: 140px;
-      width: 140px;
-      height: 140px;
+      line-height: 200px;
+      font-size: 200px;
+      width: 200px;
+      height: 200px;
       margin-top: -15px;
     }
   }
 
-  .winners {
-    list-style-type: none;
-    margin-top: 20px;
+  .winners-block {
+    margin-bottom: 10px;
 
-    .winner {
-      display: inline;
-
-      .icon-user {
-        line-height: 25px;
-        font-size: 25px;
-        width: 25px;
-        height: 25px;
-      }
+    p {
+      margin: 0;
     }
 
-    .more-winners {
-      display: inline;
+    .winners {
+      list-style-type: none;
+
+      .winner {
+        display: inline;
+
+        i {
+          line-height: 25px;
+          font-size: 25px;
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      .more-winners {
+        display: inline;
+      }
     }
   }
 }
