@@ -3,4 +3,4 @@
 #= require bootstrap-tooltip
 
 $ ->
-  $('.winner i').tooltip
+  $('.winner i').tooltip()

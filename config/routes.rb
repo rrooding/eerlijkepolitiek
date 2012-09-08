@@ -1,5 +1,5 @@
 Eerlijkepolitiek::Application.routes.draw do
-  get "trophies/index"
+  resources :trophies, only: [:index, :show]
 
   root to: 'dashboard#index'
 

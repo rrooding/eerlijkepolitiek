@@ -6,4 +6,7 @@
   %ul.winners
     - trophy.winners[0..25].each do |winner|
       %li.winner
-        %i.img-polaroid.icon-user(title='lalala')
+        %i.img-polaroid.icon-user(title="#{winner.name}")
+    - if trophy.winners.all.size > 25
+      %li.more-winners
+        = link_to '...', trophy_path(trophy.key)
