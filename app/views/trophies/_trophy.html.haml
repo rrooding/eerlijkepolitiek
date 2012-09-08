@@ -3,18 +3,22 @@
     = link_to trophy_path(trophy.key) do
       %i.img-polaroid.icon-trophy
     %h4= link_to trophy.title, trophy_path(trophy.key)
-  .winners-block
-    %p People who #{trophy.description}
-    %ul.politician-winners.winners
-      - trophy.winners[0..25].each do |winner|
-        %li.winner
-          %i.img-polaroid.icon-user(title="#{winner.name}")
-      - if trophy.winners.all.size > 25
-        %li.more-winners
-          = link_to '...', trophy_path(trophy.key)
-  .winners-block
-    %p Parties who #{trophy.description}
-    %ul.party-winners.winners
-      - %w{a b c d e f g}.each do |winner|
-        %li.winner
-          %i.img-polaroid.icon-group(title="#{winner}")
+  - if trophy.personal_description
+    .winners-block
+      %p 
+        = trophy.winners.all.count
+        people who #{trophy.personal_description}
+      %ul.politician-winners.winners
+        - trophy.winners[0..25].each do |winner|
+          %li.winner
+            %i.img-polaroid.icon-user(title="#{winner.name}")
+        - if trophy.winners.all.size > 25
+          %li.more-winners
+            = link_to '...', trophy_path(trophy.key)
+  - if trophy.party_description
+    .winners-block
+      %p Parties who #{trophy.party_description}
+      %ul.party-winners.winners
+        - trophy.party_winners.each do |winner|
+          %li.winner
+            %i.img-polaroid.icon-group(title="#{winner.name}")

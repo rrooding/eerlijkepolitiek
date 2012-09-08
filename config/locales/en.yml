@@ -4,13 +4,13 @@
 en:
   voted_gold: 
     title: 'Democrat'
-    description: 'Voted more than %{amount} times'
+    description: 'voted more than %{amount} times'
   voted_positive_gold: 
     title: 'Positive'
-    description: ' Accepted more than %{amount} times'
+    description: 'accepted more than %{amount} times'
   voted_negative_gold: 
     title: 'Negative'
-    description: 'Declined more than %{amount} times'
+    description: 'declined more than %{amount} times'
   game_changer: 
     title: 'Game Changer'
-    description: 'has been in more than %{amount} party'
+    description: 'has been in more than %{amount} parties'

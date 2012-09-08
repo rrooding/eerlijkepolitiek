@@ -6,6 +6,7 @@ FactoryGirl.define do
     t.ActorNaam 'actor naam'
     t.ActorPartij 'actor partij'
     t.SID_ActorFractie 'actorfractie'
+    t.SID_ActorLid 'actorlid'
     t.SID_Besluit 'becxgjnsltju'
   end
 end

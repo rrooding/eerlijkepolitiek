@@ -8,8 +8,7 @@ Feature:
     Then I see a list of trophies
     And I see which politicians have earned them
 
-  @wip
-  Scenario Outline: List of trophies
+  Scenario Outline: List of trophies for politicians
     Given a politician that <achievement>
     When I visit the trophies page
     Then I see a trophy listing "<achievement>"
@@ -17,7 +16,20 @@ Feature:
 
     Examples:
       | achievement |
-      | Voted more than 60 times |
-      | Accepted more than 30 times |
-      | Declined more than 30 times |
-      | has been in more than 1 party |
+      | voted more than 60 times |
+      | accepted more than 40 times |
+      | declined more than 40 times |
+      | has been in more than 1 parties |
+
+  @wip
+  Scenario Outline: List of trophies for parties
+    Given a party that <achievement>
+    When I visit the trophies page
+    Then I see a trophy listing "<achievement>"
+    And I see that the party earned it
+
+    Examples:
+      | achievement |
+      | voted more than 160 times |
+      #| Accepted more than 140 times |
+      #| Declined more than 140 times |

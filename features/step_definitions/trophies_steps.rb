@@ -11,11 +11,19 @@ Then /^I see which politicians have earned them$/ do
   first('.trophy').should have_selector '.winners'
 end
 
-Given /Voted more than (\d+) times$/ do |amount|
-  @politician = FactoryGirl.create :politician
-  amount = amount.to_i + 1
-  amount.times do
-    FactoryGirl.create :vote, :SID_ActorLid => @politician.parlis_id
+Given /^a (politician|party) (?:.*) voted more than (\d+) times$/ do |entity, amount|
+  if entity == 'politician'
+    @politician = FactoryGirl.create :politician
+    amount = amount.to_i + 1
+    amount.times do
+      FactoryGirl.create :vote, :SID_ActorLid => @politician.parlis_id
+    end
+  else
+    @party = FactoryGirl.create :political_party
+    amount = amount.to_i + 1
+    amount.times do
+      FactoryGirl.create :vote, :SID_ActorFractie => @party.parlis_id
+    end
   end
 end
 
@@ -24,16 +32,20 @@ Then /^I see a trophy listing "(.*?)"$/ do |achievement|
   first('.trophies').should have_content(achievement)
 end
 
-Then /^I see that the politician earned it$/ do
+Then /^I see that the (politician|party) earned it$/ do |entity|
   all('.trophy').each do |e|
     if e.has_content? @achievement
       e.should have_selector '.winners i'
-      e.first('.winners i')['title'].should eql @politician.name
+      if entity == 'politician'
+        e.first('.winners i')['title'].should eql @politician.name
+      else
+        e.first('.winners i')['title'].should eql @party.name
+      end
     end
   end
 end
 
-Given /Accepted more than (\d+) times$/ do |amount|
+Given /accepted more than (\d+) times$/ do |amount|
   @politician ||= FactoryGirl.create :politician
   amount = amount.to_i + 1
   amount.times do
@@ -41,7 +53,7 @@ Given /Accepted more than (\d+) times$/ do |amount|
   end
 end
 
-Given /Declined more than (\d+) times$/ do |amount|
+Given /declined more than (\d+) times$/ do |amount|
   @politician ||= FactoryGirl.create :politician
   amount = amount.to_i + 1
   amount.times do
@@ -49,7 +61,7 @@ Given /Declined more than (\d+) times$/ do |amount|
   end
 end
 
-Given /has been in more than (\d+) party$/ do |amount|
+Given /has been in more than (\d+) parties$/ do |amount|
   @politician ||= FactoryGirl.create :politician
   amount = amount.to_i + 1
   amount.times do
