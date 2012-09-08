@@ -27,7 +27,7 @@ end
 Then /^I see that the politician earned it$/ do
   all('.trophy').each do |e|
     if e.has_content? @achievement
-      e.first('.winners').should have_content @politician.name
+      e.first('.winners i')['title'].should eql @politician.name
     end
   end
 end
