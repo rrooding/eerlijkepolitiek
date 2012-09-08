@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  voted_gold: 
+    title: 'Democrat'
+    description: 'Voted more than %{amount} times'
+  voted_positive_gold: 
+    title: 'Positive'
+    description: ' Accepted more than %{amount} times'
+  voted_negative_gold: 
+    title: 'Negative'
+    description: 'Declined more than %{amount} times'

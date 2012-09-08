@@ -1,7 +1,8 @@
 %ul.trophies
   - Trophy.all.each do |trophy|
     %li.trophy
-      %h4= trophy.name
+      %h4= trophy.title
+      %p= trophy.description
       .winners
         - trophy.winners.each do |winner|
           = winner.name
