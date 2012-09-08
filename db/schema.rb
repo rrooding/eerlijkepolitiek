@@ -32,4 +32,92 @@ ActiveRecord::Schema.define(:version => 20120906201045) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "Activiteiten", :id => false, :force => true do |t|
+    t.string   "id",                :limit => 64,   :null => false
+    t.string   "Nummer",            :limit => 50,   :null => false
+    t.string   "Onderwerp",         :limit => 4000
+    t.string   "Soort",             :limit => 4000
+    t.string   "DatumSoort",        :limit => 200
+    t.datetime "Aanvangstijd"
+    t.datetime "EindTijd"
+    t.string   "Locatie",           :limit => 4000
+    t.boolean  "Besloten"
+    t.string   "Status",            :limit => 200
+    t.string   "Vergaderjaar",      :limit => 200
+    t.string   "Kamer",             :limit => 200
+    t.string   "Noot",              :limit => 4000
+    t.datetime "AangemaaktOp"
+    t.datetime "GewijzigdOp"
+    t.string   "VRSNummer",         :limit => 4000
+    t.string   "Voortouwnaam",      :limit => 200
+    t.string   "Voortouwafkorting", :limit => 50
+    t.string   "Voortouwkortenaam", :limit => 50
+  end
+
+  create_table "Agendapunten", :id => false, :force => true do |t|
+    t.string   "id",             :limit => 64,   :null => false
+    t.string   "Nummer",         :limit => 50,   :null => false
+    t.string   "Onderwerp",      :limit => 4000, :null => false
+    t.datetime "Aanvangstijd"
+    t.datetime "EindTijd"
+    t.integer  "Volgorde"
+    t.string   "Rubriek",        :limit => 4000
+    t.string   "Noot",           :limit => 4000
+    t.string   "Status",         :limit => 200
+    t.datetime "AangemaaktOp"
+    t.datetime "GewijzigdOp"
+    t.string   "SID_Activiteit", :limit => 64,   :null => false
+  end
+
+  create_table "Besluiten", :id => false, :force => true do |t|
+    t.string   "id",             :limit => 64,   :null => false
+    t.string   "Soort",          :limit => 4000, :null => false
+    t.string   "StemmingsSoort", :limit => 4000
+    t.text     "VoorstelText",                   :null => false
+    t.text     "BesluitText"
+    t.datetime "AangemaaktOp"
+    t.datetime "GewijzigdOp"
+    t.string   "Opmerking",      :limit => 4000
+    t.string   "Status",         :limit => 4000
+  end
+
+  create_table "Stemmingen", :id => false, :force => true do |t|
+    t.string   "id",               :limit => 64,   :null => false
+    t.string   "Soort",            :limit => 4000, :null => false
+    t.integer  "FractieGrootte"
+    t.integer  "FractieStemmen"
+    t.string   "ActorNaam",        :limit => 200,  :null => false
+    t.string   "ActorPartij",      :limit => 200,  :null => false
+    t.boolean  "Vergissing"
+    t.datetime "AangemaaktOp"
+    t.datetime "GewijzigdOp"
+    t.string   "SID_ActorLid",     :limit => 200,  :null => false
+    t.string   "SID_ActorFractie", :limit => 200,  :null => false
+    t.string   "SID_Besluit",      :limit => 64,   :null => false
+  end
+
+  create_table "Zaken", :id => false, :force => true do |t|
+    t.string   "id",                    :limit => 64,   :null => false
+    t.string   "Nummer",                :limit => 50,   :null => false
+    t.string   "Soort",                 :limit => 200
+    t.string   "Titel",                 :limit => 4000
+    t.string   "CiteerTitel",           :limit => 4000
+    t.string   "Alias",                 :limit => 4000
+    t.string   "Status",                :limit => 200
+    t.string   "Onderwerp",             :limit => 4000
+    t.datetime "DatumStart"
+    t.integer  "Kamer"
+    t.string   "GrondslagVoorhang",     :limit => 4000
+    t.datetime "Termijn"
+    t.string   "Vergaderjaar",          :limit => 9
+    t.string   "kamerStukDossierId",    :limit => 64
+    t.integer  "VolgNummer",                            :null => false
+    t.string   "HuidigeBehandelStatus", :limit => 1,    :null => false
+    t.boolean  "Afgedaan"
+    t.boolean  "GrootProject"
+    t.datetime "AangemaaktOp"
+    t.datetime "GewijzigdOp"
+    t.string   "SID_Activiteit",        :limit => 64,   :null => false
+  end
+
 end
