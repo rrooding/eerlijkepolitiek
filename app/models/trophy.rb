@@ -2,7 +2,8 @@ class Trophy
   TROPHIES = {
     voted_gold: I18n.t(:description, scope: 'voted_gold', amount: Politician::VOTED_GOLD),
     voted_positive_gold: I18n.t(:description, scope: 'voted_positive_gold', amount: Politician::VOTED_POSITIVE_GOLD),
-    voted_negative_gold: I18n.t(:description, scope: 'voted_negative_gold', amount: Politician::VOTED_NEGATIVE_GOLD)
+    voted_negative_gold: I18n.t(:description, scope: 'voted_negative_gold', amount: Politician::VOTED_NEGATIVE_GOLD),
+    game_changer: I18n.t(:description, scope: 'game_changer', amount: 1)
   }
   attr_accessor :key, :description, :title
 

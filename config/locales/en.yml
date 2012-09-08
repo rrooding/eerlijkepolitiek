@@ -11,3 +11,6 @@ en:
   voted_negative_gold: 
     title: 'Negative'
     description: 'Declined more than %{amount} times'
+  game_changer: 
+    title: 'Game Changer'
+    description: 'has been in more than %{amount} party'

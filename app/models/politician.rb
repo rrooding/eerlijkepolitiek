@@ -28,5 +28,11 @@ class Politician < ActiveRecord::Base
       having("count(Stemmingen.id) > #{VOTED_NEGATIVE_GOLD}")
   end
 
+  def self.game_changer
+    self.joins(:parties).
+      group('politician_parties.politician_id').
+      having("count(party_id) > 1")
+  end
+
 
 end
